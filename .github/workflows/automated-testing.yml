@@ -11,12 +11,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up node
-        uses: actions/setup-node@v2
+      - uses: actions/setup-node@v2-beta
         with:
           node-version: '12'
           check-latest: true
+      - name: Checkout submodules
+        uses: textbook/git-checkout-submodule-action@master
+        with:
+          remote: true
       - name: Start website
         run: 
+          ls
           npm install
           npm run serve & npx wait-on http://localhost:8080
 
