@@ -6,6 +6,7 @@ package com.objectcomputing.assessment.reshma.utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
@@ -22,7 +23,9 @@ public class BrowserFactory {
         if (browserName.equals("Chrome")) {
             WebDriverManager.chromedriver().setup();
             //Initiating your chromedriver
-            driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless");
+            driver = new ChromeDriver(options);
         }
         /*
 		else if(browserName.equals("Firefox"))
