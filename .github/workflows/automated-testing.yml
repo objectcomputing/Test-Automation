@@ -1,4 +1,4 @@
-name: Automated Testing with Node/Micronaut
+name: Automated Testing 
 on:
   push:
     branches: [ master, kycio-test ]
@@ -6,7 +6,6 @@ on:
     branches: [ master ]
   
 jobs:
-  
   automated-testing-selenium:
     runs-on: ubuntu-latest
     
