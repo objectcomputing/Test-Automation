@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Selenium" verbose="1">
+    <test name="all-tests-selenium">
+        <packages>
+            <package name="com.objectcomputing.assessment.test"/>
+            <package name="com.objectcomputing.assessment.reshma.Testcases"/>
+        </packages>
+    </test>
+</suite>
+
