@@ -19,5 +19,5 @@ jobs:
         env:
             CHROME_OPTS: --headless
             FIREFOX_OPTS: --headless
-        run: mvn surefire-report:report 
+        run: mvn clean install
 
