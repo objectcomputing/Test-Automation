@@ -24,6 +24,9 @@ public class TC11_SurveyAppEmailVeriFireFoxTest {
         //Initiating your firefoxdriver
         FirefoxOptions options = new FirefoxOptions();
         String opts = System.getenv("FIREFOX_OPTS");
+        if(opts != null) {
+            options.addArguments(opts);
+        }
         WebDriver driver = new FirefoxDriver(options);
 
         driver.manage().window().maximize();
