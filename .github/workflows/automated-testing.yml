@@ -1,7 +1,7 @@
 name: Automated Testing
 on:
   push:
-    branches: [ master, kycio-test ]
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -16,5 +16,8 @@ jobs:
         with:
           java-version: 1.11
       - name: Run automated testing
-        run: mvn clean install --file kycio-test/pom.xml
+        env:
+            CHROME_OPTS: --headless
+            FIREFOX_OPTS: --headless
+        run: mvn surefire-report:report 
 
