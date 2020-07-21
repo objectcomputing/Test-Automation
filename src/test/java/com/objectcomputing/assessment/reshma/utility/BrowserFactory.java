@@ -5,8 +5,12 @@ package com.objectcomputing.assessment.reshma.utility;
 
 import java.util.concurrent.TimeUnit;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 /**
  * @author tajr
@@ -19,17 +23,27 @@ public class BrowserFactory {
 	{
 		if(browserName.equals("Chrome"))
 		{
-			//setting the driver executable
-			System.setProperty("webdriver.chrome.driver", "/Users/tajr/Desktop/Selenium_Automation_Testing/chromedriver");
-				
+			WebDriverManager.chromedriver().setup();
 			//Initiating your chromedriver
-			driver=new ChromeDriver();
-
+			ChromeOptions options = new ChromeOptions();
+			String opts = System.getenv("CHROME_OPTS");
+			if (opts != null) {
+				options.addArguments(opts);
+			}
+			driver = new ChromeDriver(options);
 		}
-		/*else if(browserName.equals("Firefox"))
+		else if(browserName.equals("Firefox"))
 		{
-			
+			WebDriverManager.firefoxdriver().setup();
+			//Initiating your firefoxdriver
+			FirefoxOptions options = new FirefoxOptions();
+			String opts = System.getenv("FIREFOX_OPTS");
+			if (opts != null) {
+				options.addArguments(opts);
+			}
+			driver = new FirefoxDriver(options);
 		}
+		/*
 		else if(browserName.equals("IE"))
 		{
 			
