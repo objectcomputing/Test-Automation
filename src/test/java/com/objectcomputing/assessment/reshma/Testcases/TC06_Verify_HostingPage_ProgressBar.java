@@ -9,24 +9,28 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.objectcomputing.assessment.reshma.Pages.EngineeringPage;
 import com.objectcomputing.assessment.reshma.Pages.HostingPage;
 import com.objectcomputing.assessment.reshma.Pages.LoginPage;
+import com.objectcomputing.assessment.reshma.Pages.PracticesPage;
+import com.objectcomputing.assessment.reshma.Pages.SourcingPage;
+import com.objectcomputing.assessment.reshma.Pages.SummaryPage;
 import com.objectcomputing.assessment.reshma.utility.BrowserFactory;
 
 /**
  * @author tajr
  *
  */
-public class TC05_Verify_SurveyApp_HostingPage_Percentage_Error_Message 
+public class TC06_Verify_HostingPage_ProgressBar 
 {
 	WebDriver driver;
 	LoginPage loginPage;
 	HostingPage hostingPage;
 	
+	
 	@BeforeMethod
 	public void beforeMethod()
 	{
-	
 	//This will launch the browser and specify URL
 	driver=BrowserFactory.startApplication(driver, "Chrome", "https://assessment.objectcomputing.com/");
 	
@@ -40,9 +44,8 @@ public class TC05_Verify_SurveyApp_HostingPage_Percentage_Error_Message
 	{
 	//Call the method
 	loginPage.registerInSurveyApp("tajr123@objectcomputing.com", "Reshma Taj", "OCI");
-	hostingPage.selectValuesInHostingPage("50%","10%","10%","10%","10%");
-	hostingPage.clickOnHostingPageNextButton();
-	hostingPage.hostingPageHandleAlert();
+	hostingPage.selectValuesInHostingPage("10%","20%","30%","30%","10%");
+	hostingPage.verifyHostingPageProgressBar();
 	}
 	
 	@AfterMethod
