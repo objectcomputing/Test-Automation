@@ -1,11 +1,9 @@
 package com.objectcomputing.assessment.prasad.testcases;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
@@ -16,19 +14,13 @@ public class TC10_SurveyAppEmailVeriChromeTest {
         String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
         return email.matches(regex);
     }
-
-    @Test
+@Test
     public void SurveyAppEmailVerificationChromeTest() throws InterruptedException {
 
-        WebDriverManager.chromedriver().setup();
-        //Initiating your chromedriver
-        ChromeOptions options = new ChromeOptions();
-        String opts = System.getenv("CHROME_OPTS");
-        if (opts != null) {
-            options.addArguments(opts);
-        }
-        WebDriver driver = new ChromeDriver(options);
 
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\malamelp\\chromedriver.exe");
+
+        WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
 
         ///*************************************************************************************************///
@@ -37,7 +29,10 @@ public class TC10_SurveyAppEmailVeriChromeTest {
 
         driver.get("https://assessment.objectcomputing.com/");
 
-
+        System.out.println();
+		System.out.println("   *******    TESTCASE NAME : TC10_SurveyAppEmailVeriChromeTest  ******* ");
+		System.out.println();
+		
         String emailValidation[] = {"g g@g", "g@@a.com", "gg@a.", "gg@g g", "goodemail@gmail.com"};
 
         for (String tempEmail : emailValidation) {

@@ -1,5 +1,7 @@
 package com.objectcomputing.assessment.prasad.pages;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
@@ -7,805 +9,706 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
-import java.util.concurrent.TimeUnit;
-
 public class SummaryPage {
 
-    String check;
+	String check;
 
-    String temptest1;
-    String temptest2;
-    String temptest3;
-    String temptest4;
+	String temptest1;
+	String temptest2;
+	String temptest3;
+	String temptest4;
 
-    public void setCurrentLevel(String getcheck) {
-        check = getcheck;
-    }
+	public void setCurrentLevel(String getcheck) {
+		check = getcheck;
+	}
 
-    public void setGoal(String getGoal) {
-        check = getGoal;
-    }
+	public void setGoal(String getGoal) {
+		check = getGoal;
+	}
 
-    public void suggestItMaturity(WebDriver driver) throws InterruptedException {
+	public void suggestItMaturity(WebDriver driver) throws InterruptedException {
 
-        // *** Cost and Maintainability Vertical Bar Position ***///
+		// *** Cost and Maintainability Vertical Bar Position ***///
 
-        WebElement e1 = driver.findElement(By.xpath("//html/body/div/div/div[2]/div[1]/div[3]"));
+		WebElement e1 = driver.findElement(By.xpath("//html/body/div/div/div[2]/div[1]/div[3]"));
 
-        int exxco1 = 824;
-        int exyco1 = 165;
 
-        // To find and print the Top coordinates
-        Point actlocation = e1.getLocation();
-        // System.out.println(actlocation);
 
-        int xco1 = actlocation.getX();
-        int yco1 = actlocation.getY();
+		// To find and print the Top coordinates
+		Point actlocation = e1.getLocation();
 
-        // To find and print the Top coordinates
-        //Dimension size1 = e1.getSize();
-        // System.out.println(size1);
+		int xco1 = actlocation.getX();
+		int yco1 = actlocation.getY();
 
-        // System.out.println(xco1);
-        // System.out.println(yco1);
+		System.out.println();
+		System.out.println(				
+				"\"Cost & Maintainability assessment\"Current X-Coordinate is : " + xco1);
+		System.out.println(
+				"\"Cost & Maintainability assessment \"Current Y-Coordinate is :"  + yco1);
+		System.out.println();
 
-        Assert.assertEquals(xco1, exxco1);
-        Assert.assertEquals(yco1, exyco1);
+		// *** Functional Range / Future Proof ***///
 
-        System.out.println();
-        System.out.println(
-                "\"Cost & Maintainability assessment\" Expected and Actual X-Cord are : " + exxco1 + ":" + xco1);
-        System.out.println(
-                "\"Cost & Maintainability assessment \"Expected and Actual Y-Cord are : " + exyco1 + ":" + yco1);
-        System.out.println();
+		WebElement e2 = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[3]"));
 
-        // *** Functional Range / Future Proof ***///
 
-        WebElement e2 = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[3]"));
+		Point actlocation2 = e2.getLocation();
+		// System.out.println(actlocation2);
 
-        int exxco2 = 1193;
-        int exyco2 = 225;
+		int xco2 = actlocation2.getX();
+		int yco2 = actlocation2.getY();
 
-        Point actlocation2 = e2.getLocation();
-        // System.out.println(actlocation2);
+		System.out
+		.println("\"Functional Range / Future Proof\"Current X-Coordinate is : " + xco2);
+		System.out
+		.println("\"Functional Range / Future Proof \"Current Y-Coordinate is : "  + yco2);
 
-        int xco2 = actlocation2.getX();
-        int yco2 = actlocation2.getY();
+		System.out.println();
 
-        //Dimension size2 = e2.getSize();
-        // System.out.println(size2);
+		// *** Availability ***///
 
-        Assert.assertEquals(xco2, exxco2);
-        Assert.assertEquals(yco2, exyco2);
+		WebElement e3 = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[3]/div[3]"));
 
-        System.out
-                .println("\"Functional Range / Future Proof\" Expected and Actual X-Cord are : " + exxco2 + ":" + xco2);
-        System.out
-                .println("\"Functional Range / Future Proof \"Expected and Actual Y-Cord are : " + exyco2 + ":" + yco2);
-        System.out.println();
 
-        // *** Availability ***///
+		Point actlocation3 = e3.getLocation();
+		// System.out.println(actlocation3);
 
-        WebElement e3 = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[3]/div[3]"));
+		int xco3 = actlocation3.getX();
+		int yco3 = actlocation3.getY();
 
-        int exxco3 = 876;
-        int exyco3 = 285;
+		System.out.println("\"Availability\" Current X-Coordinate is : "  + xco3);
+		System.out.println("\"Availability\" Current Y-Coordinate is : " + yco3);
 
-        Point actlocation3 = e3.getLocation();
-        // System.out.println(actlocation3);
+		System.out.println();
 
-        int xco3 = actlocation3.getX();
-        int yco3 = actlocation3.getY();
+		// *** Security ***///
 
-        //Dimension size3 = e3.getSize();
-        // System.out.println(size3);
+		WebElement e4 = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[4]/div[3]"));
 
-        Assert.assertEquals(xco3, exxco3);
-        Assert.assertEquals(yco3, exyco3);
 
-        System.out.println("\"Availability\" Expected and Actual X-Cord are : " + exxco3 + ":" + xco3);
-        System.out.println("\"Availability\" Expected and Actual Y-Cord are : " + exyco3 + ":" + yco3);
-        System.out.println();
+		Point actlocation4 = e4.getLocation();
+		// System.out.println(actlocation4);
 
-        // *** Security ***///
+		int xco4 = actlocation4.getX();
+		int yco4 = actlocation4.getY();
 
-        WebElement e4 = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[4]/div[3]"));
+		System.out.println("\"Security\" Current X-Coordinate is : "  + xco4);
+		System.out.println("\"Security\" Current Y-Coordinate is : "  + yco4);
 
-        int exxco4 = 988;
-        int exyco4 = 345;
+		System.out.println();
 
-        Point actlocation4 = e4.getLocation();
-        // System.out.println(actlocation4);
+		// *** Innovation / Time-to-Market ***///
+		WebElement e5 = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[5]/div[3]"));
 
-        int xco4 = actlocation4.getX();
-        int yco4 = actlocation4.getY();
+		Point actlocation5 = e5.getLocation();
+		// System.out.println(actlocation5);
 
-        //Dimension size4 = e4.getSize();
-        // System.out.println(size4);
+		int xco5 = actlocation5.getX();
+		int yco5 = actlocation5.getY();
 
-        Assert.assertEquals(xco4, exxco4);
-        Assert.assertEquals(yco4, exyco4);
+		System.out.println("\"Innovation / Time-to-Market\" Current X-Coordinate is : "  + xco5);
+		System.out.println("\"Innovation / Time-to-Market\" Current Y-Coordinate is : "  + yco5);
 
-        System.out.println("\"Security\" Expected and Actual X-Cord are : " + exxco4 + ":" + xco4);
-        System.out.println("\"Security\" Expected and Actual Y-Cord are : " + exyco4 + ":" + yco4);
-        System.out.println();
+		System.out.println();
 
-        // *** Innovation / Time-to-Market ***///
-        WebElement e5 = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[5]/div[3]"));
+	}
 
-        int exxco5 = 924;
-        int exyco5 = 405;
+	public void verifyCurrentGoals(WebDriver driver) throws InterruptedException {
 
-        Point actlocation5 = e5.getLocation();
-        // System.out.println(actlocation5);
+		// *** Cost and Maintainability Vertical Bar Position ***///
 
-        int xco5 = actlocation5.getX();
-        int yco5 = actlocation5.getY();
+		WebElement g1 = driver.findElement(By.xpath("//html/body/div/div/div[2]/div[1]/div[4]"));
 
-        //Dimension size5 = e5.getSize();
-        // System.out.println(size5);
+		// To find and print the Top coordinates
+		Point actlocation = g1.getLocation();
+		// System.out.println(actlocation);
 
-        Assert.assertEquals(xco5, exxco5);
-        Assert.assertEquals(yco5, exyco5);
+		int xco1 = actlocation.getX();
+		int yco1 = actlocation.getY();
 
-        System.out.println("\"Innovation / Time-to-Market\" Expected and Actual X-Cord are : " + exxco5 + ":" + xco5);
-        System.out.println("\"Innovation / Time-to-Market\" Expected and Actual Y-Cord are : " + exyco5 + ":" + yco5);
-        System.out.println();
+		System.out.println();
+		System.out.println(
+				"********  Base on the quick assessment of your IT maturity, this is the current Position       ************");
+		System.out.println();
+		System.out.println("\"Cost & Maintainability assessment\" The current XY-Coordinates are: " + xco1 + " " + yco1);
+		System.out.println();
 
-    }
+		// *** Functional Range / Future Proof ***///
 
-    public void verifyCurrentGoals(WebDriver driver) throws InterruptedException {
+		WebElement g2 = driver.findElement(By.xpath("//html/body/div/div/div[2]/div[2]/div[4]"));
 
-        // *** Cost and Maintainability Vertical Bar Position ***///
+		Point actlocation2 = g2.getLocation();
+		// System.out.println(actlocation2);
 
-        WebElement g1 = driver.findElement(By.xpath("//html/body/div/div/div[2]/div[1]/div[4]"));
+		int xco2 = actlocation2.getX();
+		int yco2 = actlocation2.getY();
 
-        int exxco1 = 807;
-        int exyco1 = 170;
+		//Dimension size2 = g2.getSize();
 
-        // To find and print the Top coordinates
-        Point actlocation = g1.getLocation();
-        // System.out.println(actlocation);
+		System.out.println("\"\"Functional Range / Future Proof\"Current XY-Coordinates are: " + ":" + xco2 + " "  + yco2);
 
-        int xco1 = actlocation.getX();
-        int yco1 = actlocation.getY();
+		System.out.println();
 
-        // To find and print the Top coordinates
-        //Dimension size1 = g1.getSize();
-        // System.out.println(size1);
+		// *** Availability ***///
 
-        // System.out.println(xco1);
-        // System.out.println(yco1);
+		WebElement g3 = driver.findElement(By.xpath("//html/body/div/div/div[2]/div[3]/div[4]"));
 
-        Assert.assertEquals(xco1, exxco1);
-        Assert.assertEquals(yco1, exyco1);
 
-        System.out.println();
-        System.out.println(
-                "********  Base on the quick assessment of your IT maturity, this is the current Position       ************");
-        System.out.println("Current\"Cost & Maintainability assessment\"goal Expected\\Actual XY-Cord are: " + exxco1
-                + ":" + xco1 + " " + +exyco1 + ":" + yco1);
-        // System.out.println("\"Cost & Maintainability assessment \"Expected and Actual
-        // Y-Cord are : " + exyco1+ ":" + yco1);
-        System.out.println();
+		Point actlocation3 = g3.getLocation();
+		// System.out.println(actlocation3);
 
-        // *** Functional Range / Future Proof ***///
+		int xco3 = actlocation3.getX();
+		int yco3 = actlocation3.getY();
 
-        WebElement g2 = driver.findElement(By.xpath("//html/body/div/div/div[2]/div[2]/div[4]"));
+		System.out.println("\"Availability\"Current XY-Coordinates are: " + xco3 + " " + yco3);
 
-        int exxco2 = 1176;
-        int exyco2 = 230;
+		System.out.println();
 
-        Point actlocation2 = g2.getLocation();
-        // System.out.println(actlocation2);
+		// *** Security ***///
 
-        int xco2 = actlocation2.getX();
-        int yco2 = actlocation2.getY();
+		WebElement g4 = driver.findElement(By.xpath("//html/body/div/div/div[2]/div[4]/div[4]"));
 
-        //Dimension size2 = g2.getSize();
-        // System.out.println(size2);
+		Point actlocation4 = g4.getLocation();
+		// System.out.println(actlocation4);
 
-        Assert.assertEquals(xco2, exxco2);
-        Assert.assertEquals(yco2, exyco2);
+		int xco4 = actlocation4.getX();
+		int yco4 = actlocation4.getY();
 
-        System.out.println("Current\"\"Functional Range / Future Proof\"goal Expected\\Actual XY-Cord are: " + exxco2
-                + ":" + xco2 + " " + +exyco2 + ":" + yco2);
-        // System.out.println("\"Functional Range / Future Proof\" Expected and Actual
-        // X-Cord are : " + exxco2+ ":" + xco2);
-        // System.out.println("\"Functional Range / Future Proof \"Expected and Actual
-        // Y-Cord are : " + exyco2+ ":" + yco2);
-        System.out.println();
 
-        // *** Availability ***///
+		System.out.println("\"Security\"Current XY-Coordinates are: " + xco4 + " " + yco4);
 
-        WebElement g3 = driver.findElement(By.xpath("//html/body/div/div/div[2]/div[3]/div[4]"));
+		System.out.println();
 
-        int exxco3 = 859;
-        int exyco3 = 290;
+		// *** Innovation / Time-to-Market ***///
+		WebElement g5 = driver.findElement(By.xpath("//html/body/div/div/div[2]/div[5]/div[4]"));
 
-        Point actlocation3 = g3.getLocation();
-        // System.out.println(actlocation3);
+		Point actlocation5 = g5.getLocation();
+		// System.out.println(actlocation5);
 
-        int xco3 = actlocation3.getX();
-        int yco3 = actlocation3.getY();
+		int xco5 = actlocation5.getX();
+		int yco5 = actlocation5.getY();
 
-        //Dimension size3 = g3.getSize();
-        // System.out.println(size3);
+		System.out.println("\"Innovation / Time-to-Market\"Current XY-Coordinates are: " + xco5 + " " + yco5);
 
-        Assert.assertEquals(xco3, exxco3);
-        Assert.assertEquals(yco3, exyco3);
+		System.out.println();
 
-        System.out.println("Current\"Availability\"goal Expected\\Actual XY-Cord are: " + exxco3 + ":" + xco3 + " "
-                + +exyco3 + ":" + yco3);
-        // System.out.println("\"Availability\" Expected and Actual X-Cord are : " +
-        // exxco3+ ":" + xco3);
-        // System.out.println("\"Availability\" Expected and Actual Y-Cord are : " +
-        // exyco3+ ":" + yco3);
-        System.out.println();
+	}
 
-        // *** Security ***///
+	public void dragGoalsHorizontally(WebDriver driver) throws InterruptedException {
 
-        WebElement g4 = driver.findElement(By.xpath("//html/body/div/div/div[2]/div[4]/div[4]"));
+		/// *** Drag the "Cost / Maintainability" ***///
 
-        int exxco4 = 971;
-        int exyco4 = 350;
+		TimeUnit.SECONDS.sleep(3);
 
-        Point actlocation4 = g4.getLocation();
-        // System.out.println(actlocation4);
+		WebElement dragElementFrom1 = driver.findElement(By.xpath("//*[@id='app']/div/div[2]/div[1]/div[4]"));
+		new Actions(driver).dragAndDropBy(dragElementFrom1, (int) 631.593, 0).build().perform();
+		TimeUnit.SECONDS.sleep(3);
 
-        int xco4 = actlocation4.getX();
-        int yco4 = actlocation4.getY();
+		// WebElement dragElementFrom1 =
+		// driver.findElement(By.xpath("//*[@id='app']/div/div[2]/div[1]/div[4]"));
+		// Actions action1 = new Actions(driver);
+		// action1.dragAndDropBy(dragElementFrom1, (int) 631.593, 0).build().perform();
 
-        //Dimension size4 = g4.getSize();
-        // System.out.println(size4);
+		TimeUnit.SECONDS.sleep(3);
 
-        Assert.assertEquals(xco4, exxco4);
-        Assert.assertEquals(yco4, exyco4);
+		/// *** Drag the "Functional Range / Future Proof" ***///
 
-        System.out.println("Current\"Security\"goal Expected\\Actual XY-Cord are: " + exxco4 + ":" + xco4 + " "
-                + +exyco4 + ":" + yco4);
-        // System.out.println("\"Security\" Expected and Actual X-Cord are : " + exxco4+
-        // ":" + xco4);
-        // System.out.println("\"Security\" Expected and Actual Y-Cord are : " + exyco4+
-        // ":" + yco4);
-        System.out.println();
+		WebElement dragElementFrom2 = driver.findElement(By.xpath("//*[@id='app']/div/div[2]/div[2]/div[4]"));
+		new Actions(driver).dragAndDropBy(dragElementFrom2, (int) 262.56, 0).build().perform();
+		TimeUnit.SECONDS.sleep(3);
 
-        // *** Innovation / Time-to-Market ***///
-        WebElement g5 = driver.findElement(By.xpath("//html/body/div/div/div[2]/div[5]/div[4]"));
+		/// *** Drag the "Availability" ***///
 
-        int exxco5 = 907;
-        int exyco5 = 410;
+		WebElement dragElementFrom3 = driver.findElement(By.xpath("//*[@id='app']/div/div[2]/div[3]/div[4]"));
+		new Actions(driver).dragAndDropBy(dragElementFrom3, (int) 579.678, 0).build().perform();
+		TimeUnit.SECONDS.sleep(3);
 
-        Point actlocation5 = g5.getLocation();
-        // System.out.println(actlocation5);
+		/// *** Drag the "Security" ***///
 
-        int xco5 = actlocation5.getX();
-        int yco5 = actlocation5.getY();
+		WebElement dragElementFrom4 = driver.findElement(By.xpath("//*[@id='app']/div/div[2]/div[4]/div[4]"));
+		new Actions(driver).dragAndDropBy(dragElementFrom4, (int) 468.021, 0).build().perform();
+		// new Actions(driver).dragAndDropBy(dragElementFrom4, (int) 468.021,
+		// 0).build().perform();
 
-        //Dimension size5 = g5.getSize();
-        // System.out.println(size5);
+		TimeUnit.SECONDS.sleep(3);
 
-        Assert.assertEquals(xco5, exxco5);
-        Assert.assertEquals(yco5, exyco5);
+		/// *** Drag the "Innovation / Time-to-Market" ***///
 
-        System.out.println("Current\"Innovation / Time-to-Market\"goal Expected\\Actual XY-Cord are: " + exxco5 + ":"
-                + xco5 + " " + +exyco5 + ":" + yco5);
-        System.out.println("\"Innovation / Time-to-Market\" Expected and Actual X-Cord are : " + exxco5 + ":" + xco5);
-        // System.out.println("\"Security\" Expected and Actual Y-Cord are : " + exyco5+
-        // ":" + yco5);
-        System.out.println();
+		WebElement dragElementFrom5 = driver.findElement(By.xpath("//*[@id='app']/div/div[2]/div[5]/div[4]"));
+		new Actions(driver).dragAndDropBy(dragElementFrom5, (int) 532.157, 0).build().perform();
+		TimeUnit.SECONDS.sleep(3);
 
-    }
+	}
 
-    public void dragGoalsHorizontally(WebDriver driver) throws InterruptedException {
+	public void dragtTestGoalsHorizLoop(WebDriver driver) throws InterruptedException {
 
-        /// *** Drag the "Cost / Maintainability" ***///
+		/// *** Drag the "Cost / Maintainability" ***///
 
-        TimeUnit.SECONDS.sleep(3);
+		TimeUnit.SECONDS.sleep(3);
+		// float xfinalcord1 = (float) 1439.2;
 
-        WebElement dragElementFrom1 = driver.findElement(By.xpath("//*[@id='app']/div/div[2]/div[1]/div[4]"));
-        new Actions(driver).dragAndDropBy(dragElementFrom1, (int) 631.593, 0).build().perform();
-        TimeUnit.SECONDS.sleep(3);
+		// org.openqa.selenium.Dimension wtest =
+		// driver.findElement(By.xpath("//html/body/div/div/div[2]/div[1]")).getSize();
 
-        // WebElement dragElementFrom1 =
-        // driver.findElement(By.xpath("//*[@id='app']/div/div[2]/div[1]/div[4]"));
-        // Actions action1 = new Actions(driver);
-        // action1.dragAndDropBy(dragElementFrom1, (int) 631.593, 0).build().perform();
+		// System.out.println("Size of the button : "+ wtest);
+		// System.out.println("Width of the button with constant : "+ wtest.width);
 
-        TimeUnit.SECONDS.sleep(3);
+		for (int i = 1; i < 6; i++) {
 
-        /// *** Drag the "Functional Range / Future Proof" ***///
+			org.openqa.selenium.Dimension wtest = driver.findElement(By.xpath("//html/body/div/div/div[2]/div[1]"))
+					.getSize();
 
-        WebElement dragElementFrom2 = driver.findElement(By.xpath("//*[@id='app']/div/div[2]/div[2]/div[4]"));
-        new Actions(driver).dragAndDropBy(dragElementFrom2, (int) 262.56, 0).build().perform();
-        TimeUnit.SECONDS.sleep(3);
+			String dragit = "//*[@id='app']/div/div[2]/div[" + (i) + " ]/div[4]";
 
-        /// *** Drag the "Availability" ***///
+			WebElement dragElementFrom1 = driver.findElement(By.xpath(dragit));
+			org.openqa.selenium.Point point1 = dragElementFrom1.getLocation();
 
-        WebElement dragElementFrom3 = driver.findElement(By.xpath("//*[@id='app']/div/div[2]/div[3]/div[4]"));
-        new Actions(driver).dragAndDropBy(dragElementFrom3, (int) 579.678, 0).build().perform();
-        TimeUnit.SECONDS.sleep(3);
+			float xcord1 = point1.getX();
+			float xfinalcord1 = (float) wtest.width;
+			float xmovecord1 = xfinalcord1 - xcord1;
 
-        /// *** Drag the "Security" ***///
+			Actions actions1 = new Actions(driver);
+			actions1.clickAndHold(dragElementFrom1).moveByOffset((int) xmovecord1, 0).release().perform();
+			// dragElementFrom1.click();
 
-        WebElement dragElementFrom4 = driver.findElement(By.xpath("//*[@id='app']/div/div[2]/div[4]/div[4]"));
-        new Actions(driver).dragAndDropBy(dragElementFrom4, (int) 468.021, 0).build().perform();
-        // new Actions(driver).dragAndDropBy(dragElementFrom4, (int) 468.021,
-        // 0).build().perform();
+			TimeUnit.SECONDS.sleep(3);
 
-        TimeUnit.SECONDS.sleep(3);
+		}
 
-        /// *** Drag the "Innovation / Time-to-Market" ***///
+	}
 
-        WebElement dragElementFrom5 = driver.findElement(By.xpath("//*[@id='app']/div/div[2]/div[5]/div[4]"));
-        new Actions(driver).dragAndDropBy(dragElementFrom5, (int) 532.157, 0).build().perform();
-        TimeUnit.SECONDS.sleep(3);
+	/// *************************************************************************************************///
+	/// *** Level current - Hosting ***///
+	/// *************************************************************************************************///
 
-    }
+	public void findCurrentLevers(WebDriver driver) throws InterruptedException {
 
-    public void dragtTestGoalsHorizLoop(WebDriver driver) throws InterruptedException {
+		/// *** Cost and Maintainability Vertical Bar Position ***///
 
-        /// *** Drag the "Cost / Maintainability" ***///
+		String title1 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[1]/div[1]")).getText();
 
-        TimeUnit.SECONDS.sleep(3);
-        // float xfinalcord1 = (float) 1439.2;
+		System.out.println(title1);
 
-        // org.openqa.selenium.Dimension wtest =
-        // driver.findElement(By.xpath("//html/body/div/div/div[2]/div[1]")).getSize();
+		String titgp1 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[1]/div[2]/div[1]/div[1]")).getText();
+		String classes1 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[1]/div[2]/div[1]/div[1]"))
+				.getAttribute("class");
 
-        // System.out.println("Size of the button : "+ wtest);
-        // System.out.println("Width of the button with constant : "+ wtest.width);
+		String titgp2 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[1]/div[2]/div[2]/div[1]")).getText();
+		String classes2 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[1]/div[2]/div[2]/div[1]"))
+				.getAttribute("class");
 
-        for (int i = 1; i < 6; i++) {
+		String titgp3 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[1]/div[2]/div[3]/div[1]")).getText();
+		String classes3 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[1]/div[2]/div[3]/div[1]"))
+				.getAttribute("class");
 
-            org.openqa.selenium.Dimension wtest = driver.findElement(By.xpath("//html/body/div/div/div[2]/div[1]"))
-                    .getSize();
+		String titgp4 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[1]/div[2]/div[4]/div[1]")).getText();
+		String classes4 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[1]/div[2]/div[4]/div[1]"))
+				.getAttribute("class");
 
-            String dragit = "//*[@id='app']/div/div[2]/div[" + (i) + " ]/div[4]";
+		String titgp5 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[1]/div[2]/div[5]/div[1]")).getText();
+		String classes5 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[1]/div[2]/div[5]/div[1]"))
+				.getAttribute("class");
 
-            WebElement dragElementFrom1 = driver.findElement(By.xpath(dragit));
-            org.openqa.selenium.Point point1 = dragElementFrom1.getLocation();
+		if (classes1.equals(check)) {
+			if (classes1.equals("level current")) {
+				temptest1 = titgp1;
+				System.out.println("Under : " + title1 + " Your current position is: " + titgp1);
 
-            float xcord1 = point1.getX();
-            float xfinalcord1 = (float) wtest.width;
-            float xmovecord1 = xfinalcord1 - xcord1;
+			} else if (classes1.equals("level goal")) {
+				System.out
+				.println("Under : " + title1 + " Our quick assessment of your IT maturity was : " + temptest1);
+				System.out.println("Under : " + title1 + " As per your selection, your new goal is : " + titgp1);
+			} else {
 
-            Actions actions1 = new Actions(driver);
-            actions1.clickAndHold(dragElementFrom1).moveByOffset((int) xmovecord1, 0).release().perform();
-            // dragElementFrom1.click();
+				System.out.println("Under : " + title1 + " Your are currely at: " + titgp5);
+			}
+		}
 
-            TimeUnit.SECONDS.sleep(3);
+		else if (classes2.equals(check)) {
+			if (classes2.equals("level current")) {
+				temptest1 = titgp2;
+				System.out.println("Under : " + title1 + " Your current position is: " + titgp2);
 
-        }
+			} else if (classes2.equals("level goal")) {
+				System.out
+				.println("Under : " + title1 + " Our quick assessment of your IT maturity was : " + temptest1);
+				System.out.println("Under : " + title1 + " As per your selection, your new goal is : " + titgp2);
+			}
 
-    }
+		} else if (classes3.equals(check)) {
 
-    /// *************************************************************************************************///
-    /// *** Level current - Hosting ***///
-    /// *************************************************************************************************///
+			if (classes3.equals("level current")) {
+				temptest1 = titgp3;
+				System.out.println("Under : " + title1 + " Your current position is: " + titgp3);
 
-    public void findCurrentLevers(WebDriver driver) throws InterruptedException {
+			} else if (classes3.equals("level goal")) {
+				System.out
+				.println("Under : " + title1 + " Our quick assessment of your IT maturity was : " + temptest1);
+				System.out.println("Under : " + title1 + " As per your selection, your new goal is : " + titgp3);
+			}
 
-        /// *** Cost and Maintainability Vertical Bar Position ***///
+		}
 
-        String title1 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[1]/div[1]")).getText();
+		else if (classes4.equals(check)) {
 
-        System.out.println(title1);
+			if (classes4.equals("level current")) {
+				temptest1 = titgp4;
+				System.out.println("Under : " + title1 + " Your current position is: " + titgp4);
 
-        String titgp1 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[1]/div[2]/div[1]/div[1]")).getText();
-        String classes1 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[1]/div[2]/div[1]/div[1]"))
-                .getAttribute("class");
+			} else if (classes4.equals("level goal")) {
+				System.out
+				.println("Under : " + title1 + " Our quick assessment of your IT maturity was : " + temptest1);
+			}
 
-        String titgp2 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[1]/div[2]/div[2]/div[1]")).getText();
-        String classes2 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[1]/div[2]/div[2]/div[1]"))
-                .getAttribute("class");
+		}
 
-        String titgp3 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[1]/div[2]/div[3]/div[1]")).getText();
-        String classes3 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[1]/div[2]/div[3]/div[1]"))
-                .getAttribute("class");
+		else if (classes5.equals(check)) {
 
-        String titgp4 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[1]/div[2]/div[4]/div[1]")).getText();
-        String classes4 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[1]/div[2]/div[4]/div[1]"))
-                .getAttribute("class");
+			if (classes5.equals("level current")) {
+				temptest1 = titgp5;
+				System.out.println("Under : " + title1 + " Your current position is: " + titgp5);
 
-        String titgp5 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[1]/div[2]/div[5]/div[1]")).getText();
-        String classes5 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[1]/div[2]/div[5]/div[1]"))
-                .getAttribute("class");
+			} else if (classes5.equals("level goal")) {
+				System.out
+				.println("Under : " + title1 + " Our quick assessment of your IT maturity was : " + temptest1);
+				System.out.println("Under : " + title1 + " As per your selection, your new goal is : " + titgp5);
+			}
 
-        if (classes1.equals(check)) {
-            if (classes1.equals("level current")) {
-                temptest1 = titgp1;
-                System.out.println("Under : " + title1 + " Your current position is: " + titgp1);
+		} else
+			System.out.println("Under : " + title1 + " Your current position is: " + temptest1);
 
-            } else if (classes1.equals("level goal")) {
-                System.out
-                        .println("Under : " + title1 + " Our quick assessment of your IT maturity was : " + temptest1);
-                System.out.println("Under : " + title1 + " As per your selection, your new goal is : " + titgp1);
-            } else {
+		{
+			System.out.println();
+		}
 
-                System.out.println("Under : " + title1 + " Your are currely at: " + titgp5);
-            }
-        } else if (classes2.equals(check)) {
-            if (classes2.equals("level current")) {
-                temptest1 = titgp2;
-                System.out.println("Under : " + title1 + " Your current position is: " + titgp2);
+		System.out.println();
+		String title2 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[2]/div[1]")).getText();
+		System.out.println(title2);
 
-            } else if (classes2.equals("level goal")) {
-                System.out
-                        .println("Under : " + title1 + " Our quick assessment of your IT maturity was : " + temptest1);
-                System.out.println("Under : " + title1 + " As per your selection, your new goal is : " + titgp2);
-            }
+		String titep1 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[2]/div[2]/div[1]/div[1]")).getText();
+		String classese1 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[2]/div[2]/div[1]/div[1]"))
+				.getAttribute("class");
 
-        } else if (classes3.equals(check)) {
+		String titep2 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[2]/div[2]/div[2]/div[1]")).getText();
+		String classese2 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[2]/div[2]/div[2]/div[1]"))
+				.getAttribute("class");
 
-            if (classes3.equals("level current")) {
-                temptest1 = titgp3;
-                System.out.println("Under : " + title1 + " Your current position is: " + titgp3);
+		String titep3 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[2]/div[2]/div[3]/div[1]")).getText();
+		String classese3 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[2]/div[2]/div[3]/div[1]"))
+				.getAttribute("class");
 
-            } else if (classes3.equals("level goal")) {
-                System.out
-                        .println("Under : " + title1 + " Our quick assessment of your IT maturity was : " + temptest1);
-                System.out.println("Under : " + title1 + " As per your selection, your new goal is : " + titgp3);
-            }
+		String titep4 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[2]/div[2]/div[4]/div[1]")).getText();
+		String classese4 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[2]/div[2]/div[4]/div[1]"))
+				.getAttribute("class");
 
-        } else if (classes4.equals(check)) {
+		String titep5 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[2]/div[2]/div[5]/div[1]")).getText();
+		String classese5 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[2]/div[2]/div[5]/div[1]"))
+				.getAttribute("class");
 
-            if (classes4.equals("level current")) {
-                temptest1 = titgp4;
-                System.out.println("Under : " + title1 + " Your current position is: " + titgp4);
+		if (classese1.equals(check)) {
+			if (classese1.equals("level current")) {
+				temptest2 = titep1;
+				System.out.println("Under : " + title2 + " Your current position is: " + titep1);
 
-            } else if (classes4.equals("level goal")) {
-                System.out
-                        .println("Under : " + title1 + " Our quick assessment of your IT maturity was : " + temptest1);
-            }
+			} else if (classese1.equals("level goal")) {
+				System.out
+				.println("Under : " + title2 + " Our quick assessment of your IT maturity was : " + temptest2);
+				System.out.println("Under : " + title2 + " As per your selection, your new goal is : " + titep1);
+			}
+		} else if (classese2.equals(check)) {
 
-        } else if (classes5.equals(check)) {
+			if (classese2.equals("level current")) {
+				temptest2 = titep2;
+				System.out.println("Under : " + title2 + " Your current position is: " + titep2);
 
-            if (classes5.equals("level current")) {
-                temptest1 = titgp5;
-                System.out.println("Under : " + title1 + " Your current position is: " + titgp5);
+			} else if (classese2.equals("level goal")) {
+				System.out
+				.println("Under : " + title2 + " Our quick assessment of your IT maturity was : " + temptest2);
+				System.out.println("Under : " + title2 + " As per your selection, your new goal is : " + titep2);
+			}
 
-            } else if (classes5.equals("level goal")) {
-                System.out
-                        .println("Under : " + title1 + " Our quick assessment of your IT maturity was : " + temptest1);
-                System.out.println("Under : " + title1 + " As per your selection, your new goal is : " + titgp5);
-            }
+		} else if (classese3.equals(check)) {
 
-        } else
-            System.out.println("Under : " + title1 + " Your current position is: " + temptest1);
+			if (classese3.equals("level current")) {
+				temptest2 = titep3;
+				System.out.println("Under : " + title2 + " Your current position is: " + titep3);
 
-        {
-            System.out.println();
-        }
+			} else if (classese3.equals("level goal")) {
+				System.out
+				.println("Under : " + title2 + " Our quick assessment of your IT maturity was : " + temptest2);
+				System.out.println("Under : " + title2 + " As per your selection, your new goal is : " + titep3);
 
-        System.out.println();
-        String title2 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[2]/div[1]")).getText();
-        System.out.println(title2);
+			}
+		} else if (classese4.equals(check)) {
 
-        String titep1 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[2]/div[2]/div[1]/div[1]")).getText();
-        String classese1 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[2]/div[2]/div[1]/div[1]"))
-                .getAttribute("class");
+			if (classese4.equals("level current")) {
+				temptest2 = titep4;
+				System.out.println("Under : " + title2 + " Your current position is: " + titep4);
 
-        String titep2 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[2]/div[2]/div[2]/div[1]")).getText();
-        String classese2 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[2]/div[2]/div[2]/div[1]"))
-                .getAttribute("class");
+			} else if (classese4.equals("level goal")) {
+				System.out
+				.println("Under : " + title2 + " Our quick assessment of your IT maturity was : " + temptest2);
+				System.out.println("Under : " + title2 + " As per your selection, your new goal is : " + titep4);
 
-        String titep3 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[2]/div[2]/div[3]/div[1]")).getText();
-        String classese3 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[2]/div[2]/div[3]/div[1]"))
-                .getAttribute("class");
+			}
+		} else if (classese5.equals(check)) {
 
-        String titep4 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[2]/div[2]/div[4]/div[1]")).getText();
-        String classese4 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[2]/div[2]/div[4]/div[1]"))
-                .getAttribute("class");
+			if (classese5.equals("level current")) {
+				temptest2 = titep5;
+				System.out.println("Under : " + title2 + " Your current position is: " + titep5);
 
-        String titep5 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[2]/div[2]/div[5]/div[1]")).getText();
-        String classese5 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[2]/div[2]/div[5]/div[1]"))
-                .getAttribute("class");
+			} else if (classese5.equals("level goal")) {
+				System.out
+				.println("Under : " + title2 + " Our quick assessment of your IT maturity was : " + temptest2);
+				System.out.println("Under : " + title2 + " As per your selection, your new goal is : " + titep5);
 
-        if (classese1.equals(check)) {
-            if (classese1.equals("level current")) {
-                temptest2 = titep1;
-                System.out.println("Under : " + title2 + " Your current position is: " + titep1);
+			}
+		} else
 
-            } else if (classese1.equals("level goal")) {
-                System.out
-                        .println("Under : " + title2 + " Our quick assessment of your IT maturity was : " + temptest2);
-                System.out.println("Under : " + title2 + " As per your selection, your new goal is : " + titep1);
-            }
-        } else if (classese2.equals(check)) {
+			System.out.println("Under : " + title2 + " Your current position is: " + temptest2);
 
-            if (classese2.equals("level current")) {
-                temptest2 = titep2;
-                System.out.println("Under : " + title2 + " Your current position is: " + titep2);
+		{
+			System.out.println();
+		}
 
-            } else if (classese2.equals("level goal")) {
-                System.out
-                        .println("Under : " + title2 + " Our quick assessment of your IT maturity was : " + temptest2);
-                System.out.println("Under : " + title2 + " As per your selection, your new goal is : " + titep2);
-            }
+		System.out.println();
+		String title3 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[3]/div[1]")).getText();
+		System.out.println(title3);
 
-        } else if (classese3.equals(check)) {
+		String titsp1 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[3]/div[2]/div[1]/div[1]")).getText();
+		String classess1 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[3]/div[2]/div[1]/div[1]"))
+				.getAttribute("class");
 
-            if (classese3.equals("level current")) {
-                temptest2 = titep3;
-                System.out.println("Under : " + title2 + " Your current position is: " + titep3);
+		String titsp2 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[3]/div[2]/div[2]/div[1]")).getText();
+		String classess2 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[3]/div[2]/div[2]/div[1]"))
+				.getAttribute("class");
 
-            } else if (classese3.equals("level goal")) {
-                System.out
-                        .println("Under : " + title2 + " Our quick assessment of your IT maturity was : " + temptest2);
-                System.out.println("Under : " + title2 + " As per your selection, your new goal is : " + titep3);
+		String titsp3 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[3]/div[2]/div[3]/div[1]")).getText();
+		String classess3 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[3]/div[2]/div[3]/div[1]"))
+				.getAttribute("class");
 
-            }
-        } else if (classese4.equals(check)) {
+		String titsp4 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[3]/div[2]/div[4]/div[1]")).getText();
+		String classess4 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[3]/div[2]/div[4]/div[1]"))
+				.getAttribute("class");
 
-            if (classese4.equals("level current")) {
-                temptest2 = titep4;
-                System.out.println("Under : " + title2 + " Your current position is: " + titep4);
+		String titsp5 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[3]/div[2]/div[5]/div[1]")).getText();
+		String classess5 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[3]/div[2]/div[5]/div[1]"))
+				.getAttribute("class");
 
-            } else if (classese4.equals("level goal")) {
-                System.out
-                        .println("Under : " + title2 + " Our quick assessment of your IT maturity was : " + temptest2);
-                System.out.println("Under : " + title2 + " As per your selection, your new goal is : " + titep4);
+		if (classess1.equals(check)) {
 
-            }
-        } else if (classese5.equals(check)) {
+			if (classess1.equals("level current")) {
+				temptest3 = titsp1;
+				System.out.println(temptest3);
+				System.out.println("Under : " + title3 + " Your current position is: " + titsp1);
 
-            if (classese5.equals("level current")) {
-                temptest2 = titep5;
-                System.out.println("Under : " + title2 + " Your current position is: " + titep5);
+			} else if (classess1.equals("level goal")) {
+				System.out
+				.println("Under : " + title3 + " Our quick assessment of your IT maturity was : " + temptest3);
+				System.out.println("Under : " + title3 + " As per your selection, your new goal is : " + titsp1);
 
-            } else if (classese5.equals("level goal")) {
-                System.out
-                        .println("Under : " + title2 + " Our quick assessment of your IT maturity was : " + temptest2);
-                System.out.println("Under : " + title2 + " As per your selection, your new goal is : " + titep5);
+			}
 
-            }
-        } else
+		} else if (classess2.equals(check)) {
 
-            System.out.println("Under : " + title2 + " Your current position is: " + temptest2);
+			if (classess2.equals("level current")) {
+				temptest3 = titsp2;
+				System.out.println(temptest3);
 
-        {
-            System.out.println();
-        }
+				System.out.println("Under : " + title3 + " Your current position is: " + titsp2);
 
-        System.out.println();
-        String title3 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[3]/div[1]")).getText();
-        System.out.println(title3);
+			} else if (classess2.equals("level goal")) {
+				System.out
+				.println("Under : " + title3 + " Our quick assessment of your IT maturity was : " + temptest3);
+				System.out.println("Under : " + title3 + " As per your selection, your new goal is : " + titsp2);
 
-        String titsp1 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[3]/div[2]/div[1]/div[1]")).getText();
-        String classess1 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[3]/div[2]/div[1]/div[1]"))
-                .getAttribute("class");
+			}
 
-        String titsp2 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[3]/div[2]/div[2]/div[1]")).getText();
-        String classess2 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[3]/div[2]/div[2]/div[1]"))
-                .getAttribute("class");
+		} else if (classess3.equals(check)) {
 
-        String titsp3 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[3]/div[2]/div[3]/div[1]")).getText();
-        String classess3 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[3]/div[2]/div[3]/div[1]"))
-                .getAttribute("class");
+			if (classess3.equals("level current")) {
+				temptest3 = titsp3;
 
-        String titsp4 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[3]/div[2]/div[4]/div[1]")).getText();
-        String classess4 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[3]/div[2]/div[4]/div[1]"))
-                .getAttribute("class");
+				System.out.println("Under : " + title3 + " Your current position is: " + titsp3);
 
-        String titsp5 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[3]/div[2]/div[5]/div[1]")).getText();
-        String classess5 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[3]/div[2]/div[5]/div[1]"))
-                .getAttribute("class");
+			} else if (classess3.equals("level goal")) {
+				System.out
+				.println("Under : " + title3 + " Our quick assessment of your IT maturity was : " + temptest3);
+				System.out.println("Under : " + title3 + " As per your selection, your new goal is : " + titsp3);
 
-        if (classess1.equals(check)) {
+			}
 
-            if (classess1.equals("level current")) {
-                temptest3 = titsp1;
-                System.out.println(temptest3);
-                System.out.println("Under : " + title3 + " Your current position is: " + titsp1);
+		} else if (classess4.equals(check)) {
 
-            } else if (classess1.equals("level goal")) {
-                System.out
-                        .println("Under : " + title3 + " Our quick assessment of your IT maturity was : " + temptest3);
-                System.out.println("Under : " + title3 + " As per your selection, your new goal is : " + titsp1);
+			if (classess4.equals("level current")) {
+				temptest3 = titsp4;
+				System.out.println(temptest3);
 
-            }
+				System.out.println("Under : " + title3 + " Your current position is: " + titsp4);
 
-        } else if (classess2.equals(check)) {
+			} else if (classess4.equals("level goal")) {
+				System.out
+				.println("Under : " + title3 + " Our quick assessment of your IT maturity was : " + temptest3);
+				System.out.println("Under : " + title3 + " As per your selection, your new goal is : " + titsp4);
 
-            if (classess2.equals("level current")) {
-                temptest3 = titsp2;
-                System.out.println(temptest3);
+			}
 
-                System.out.println("Under : " + title3 + " Your current position is: " + titsp2);
+		} else if (classess5.equals(check)) {
 
-            } else if (classess2.equals("level goal")) {
-                System.out
-                        .println("Under : " + title3 + " Our quick assessment of your IT maturity was : " + temptest3);
-                System.out.println("Under : " + title3 + " As per your selection, your new goal is : " + titsp2);
+			if (classess5.equals("level current")) {
+				temptest3 = titsp5;
+				System.out.println(temptest3);
 
-            }
+				System.out.println("Under : " + title3 + " Your current position is: " + titsp5);
 
-        } else if (classess3.equals(check)) {
+			} else if (classess5.equals("level goal")) {
+				System.out
+				.println("Under : " + title3 + " Our quick assessment of your IT maturity was : " + temptest3);
+				System.out.println("Under : " + title3 + " As per your selection, your new goal is : " + titsp5);
 
-            if (classess3.equals("level current")) {
-                temptest3 = titsp3;
+			}
 
-                System.out.println("Under : " + title3 + " Your current position is: " + titsp3);
+		} else
 
-            } else if (classess3.equals("level goal")) {
-                System.out
-                        .println("Under : " + title3 + " Our quick assessment of your IT maturity was : " + temptest3);
-                System.out.println("Under : " + title3 + " As per your selection, your new goal is : " + titsp3);
+			System.out.println("Under : " + title3 + " Your current position is: " + temptest3);
 
-            }
+		{
+			System.out.println();
+		}
 
-        } else if (classess4.equals(check)) {
+		System.out.println();
+		String title4 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[4]/div[1]")).getText();
+		System.out.println(title4);
 
-            if (classess4.equals("level current")) {
-                temptest3 = titsp4;
-                System.out.println(temptest3);
+		String titpp1 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[4]/div[2]/div[1]/div[1]")).getText();
+		String classesp1 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[4]/div[2]/div[1]/div[1]"))
+				.getAttribute("class");
 
-                System.out.println("Under : " + title3 + " Your current position is: " + titsp4);
+		String titpp2 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[4]/div[2]/div[2]/div[1]")).getText();
+		String classesp2 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[4]/div[2]/div[2]/div[1]"))
+				.getAttribute("class");
 
-            } else if (classess4.equals("level goal")) {
-                System.out
-                        .println("Under : " + title3 + " Our quick assessment of your IT maturity was : " + temptest3);
-                System.out.println("Under : " + title3 + " As per your selection, your new goal is : " + titsp4);
+		String titpp3 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[4]/div[2]/div[3]/div[1]")).getText();
+		String classesp3 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[4]/div[2]/div[3]/div[1]"))
+				.getAttribute("class");
 
-            }
+		String titpp4 = driver.findElement(By.xpath("/*//*[@id='app']/div/div[5]/div[4]/div[2]/div[4]/div[1]"))
+				.getText();
+		String classesp4 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[4]/div[2]/div[4]/div[1]"))
+				.getAttribute("class");
 
-        } else if (classess5.equals(check)) {
+		String titpp5 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[4]/div[2]/div[5]/div[1]")).getText();
+		String classesp5 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[4]/div[2]/div[5]/div[1]"))
+				.getAttribute("class");
 
-            if (classess5.equals("level current")) {
-                temptest3 = titsp5;
-                System.out.println(temptest3);
+		if (classesp1.equals(check)) {
 
-                System.out.println("Under : " + title3 + " Your current position is: " + titsp5);
+			if (classesp1.equals("level current")) {
+				temptest4 = titpp1;
+				System.out.println("Under : " + title4 + " Your current position is: " + titpp1);
 
-            } else if (classess5.equals("level goal")) {
-                System.out
-                        .println("Under : " + title3 + " Our quick assessment of your IT maturity was : " + temptest3);
-                System.out.println("Under : " + title3 + " As per your selection, your new goal is : " + titsp5);
+			} else if (classesp1.equals("level goal")) {
+				System.out
+				.println("Under : " + title4 + " Our quick assessment of your IT maturity was : " + temptest4);
+				System.out.println("Under : " + title4 + " As per your selection, your new goal is : " + titpp1);
+			}
 
-            }
+		} else if (classesp2.equals(check)) {
 
-        } else
+			if (classesp2.equals("level current")) {
+				temptest4 = titpp2;
+				System.out.println("Under : " + title4 + " Your current position is: " + titpp2);
 
-            System.out.println("Under : " + title3 + " Your current position is: " + temptest3);
+			} else if (classesp2.equals("level goal")) {
+				System.out
+				.println("Under : " + title4 + " Our quick assessment of your IT maturity was : " + temptest4);
+				System.out.println("Under : " + title4 + " As per your selection, your new goal is : " + titpp2);
+			}
 
-        {
-            System.out.println();
-        }
+		} else if (classesp3.equals(check)) {
 
-        System.out.println();
-        String title4 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[4]/div[1]")).getText();
-        System.out.println(title4);
+			if (classesp3.equals("level current")) {
+				temptest4 = titpp3;
+				System.out.println("Under : " + title4 + " Your current position is: " + titpp3);
 
-        String titpp1 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[4]/div[2]/div[1]/div[1]")).getText();
-        String classesp1 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[4]/div[2]/div[1]/div[1]"))
-                .getAttribute("class");
+			} else if (classesp3.equals("level goal")) {
+				System.out
+				.println("Under : " + title4 + " Our quick assessment of your IT maturity was : " + temptest4);
+				System.out.println("Under : " + title4 + " As per your selection, your new goal is : " + titpp3);
+			}
 
-        String titpp2 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[4]/div[2]/div[2]/div[1]")).getText();
-        String classesp2 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[4]/div[2]/div[2]/div[1]"))
-                .getAttribute("class");
+		} else if (classesp4.equals(check)) {
 
-        String titpp3 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[4]/div[2]/div[3]/div[1]")).getText();
-        String classesp3 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[4]/div[2]/div[3]/div[1]"))
-                .getAttribute("class");
+			if (classesp4.equals("level current")) {
+				temptest4 = titpp4;
+				System.out.println("Under : " + title4 + " Your current position is: " + titpp4);
 
-        String titpp4 = driver.findElement(By.xpath("/*//*[@id='app']/div/div[5]/div[4]/div[2]/div[4]/div[1]"))
-                .getText();
-        String classesp4 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[4]/div[2]/div[4]/div[1]"))
-                .getAttribute("class");
+			} else if (classesp4.equals("level goal")) {
+				System.out
+				.println("Under : " + title4 + " Our quick assessment of your IT maturity was : " + temptest4);
+				System.out.println("Under : " + title4 + " As per your selection, your new goal is : " + titpp4);
+			}
 
-        String titpp5 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[4]/div[2]/div[5]/div[1]")).getText();
-        String classesp5 = driver.findElement(By.xpath("//*[@id='app']/div/div[5]/div[4]/div[2]/div[5]/div[1]"))
-                .getAttribute("class");
+		} else if (classesp5.equals(check)) {
 
-        if (classesp1.equals(check)) {
+			if (classesp5.equals("level current")) {
+				temptest4 = titpp5;
+				System.out.println("Under : " + title4 + " Your current position is: " + titpp5);
 
-            if (classesp1.equals("level current")) {
-                temptest4 = titpp1;
-                System.out.println("Under : " + title4 + " Your current position is: " + titpp1);
+			} else if (classesp5.equals("level goal")) {
+				System.out
+				.println("Under : " + title4 + " Our quick assessment of your IT maturity was : " + temptest4);
+				System.out.println("Under : " + title4 + " As per your selection, your new goal is : " + titpp5);
+			}
 
-            } else if (classesp1.equals("level goal")) {
-                System.out
-                        .println("Under : " + title4 + " Our quick assessment of your IT maturity was : " + temptest4);
-                System.out.println("Under : " + title4 + " As per your selection, your new goal is : " + titpp1);
-            }
+		} else
 
-        } else if (classesp2.equals(check)) {
+			System.out.println("Under : " + title4 + " Your current position is: " + temptest4);
 
-            if (classesp2.equals("level current")) {
-                temptest4 = titpp2;
-                System.out.println("Under : " + title4 + " Your current position is: " + titpp2);
+		{
+			System.out.println();
+		}
 
-            } else if (classesp2.equals("level goal")) {
-                System.out
-                        .println("Under : " + title4 + " Our quick assessment of your IT maturity was : " + temptest4);
-                System.out.println("Under : " + title4 + " As per your selection, your new goal is : " + titpp2);
-            }
+		System.out.println();
+	}
 
-        } else if (classesp3.equals(check)) {
+	public void verifyGettingThereE2e(WebDriver driver) {
 
-            if (classesp3.equals("level current")) {
-                temptest4 = titpp3;
-                System.out.println("Under : " + title4 + " Your current position is: " + titpp3);
+		// ***************************** Verifying Labels Description ONE
+		// *********************************///
 
-            } else if (classesp3.equals("level goal")) {
-                System.out
-                        .println("Under : " + title4 + " Our quick assessment of your IT maturity was : " + temptest4);
-                System.out.println("Under : " + title4 + " As per your selection, your new goal is : " + titpp3);
-            }
+		driver.findElement(By.xpath("//*[@id=\"app\"]/div/header[1]")).getText();
+		String actdesone = driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[3]")).getText();
 
-        } else if (classesp4.equals(check)) {
+		String expectedDesone = "To get to where you want to be, we recommend advancing your Hosting"
+				+ " from PaaS to Serverless and your Practices from Catalog to Experiments.";
 
-            if (classesp4.equals("level current")) {
-                temptest4 = titpp4;
-                System.out.println("Under : " + title4 + " Your current position is: " + titpp4);
+		System.out.println("*******  Verifying \"Getting There label and Description\" on Final Page    ******");
 
-            } else if (classesp4.equals("level goal")) {
-                System.out
-                        .println("Under : " + title4 + " Our quick assessment of your IT maturity was : " + temptest4);
-                System.out.println("Under : " + title4 + " As per your selection, your new goal is : " + titpp4);
-            }
+		System.out.println("Expected Confirmation message: " + expectedDesone);
+		System.out.println("Actual Confirmation message: " + actdesone);
+		System.out.println();
 
-        } else if (classesp5.equals(check)) {
+		Assert.assertEquals(actdesone, expectedDesone);
 
-            if (classesp5.equals("level current")) {
-                temptest4 = titpp5;
-                System.out.println("Under : " + title4 + " Your current position is: " + titpp5);
+	}
 
-            } else if (classesp5.equals("level goal")) {
-                System.out
-                        .println("Under : " + title4 + " Our quick assessment of your IT maturity was : " + temptest4);
-                System.out.println("Under : " + title4 + " As per your selection, your new goal is : " + titpp5);
-            }
+	public void verifyGettingThereAllSelectE2e(WebDriver driver) {
 
-        } else
+		// ***************************** Verifying Labels Description ONE
 
-            System.out.println("Under : " + title4 + " Your current position is: " + temptest4);
+		driver.findElement(By.xpath("//*[@id=\"app\"]/div/header[1]")).getText();
+		String actdesone = driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[3]")).getText();
 
-        {
-            System.out.println();
-        }
+		String expectedDesone = "To get to where you want to be, we recommend advancing your Practices from Catalog to Experiments, your Hosting from PaaS to Serverless, your Engineering from Reusable to Engaged, and your Sourcing from Hosted to SaaS.";
 
-        System.out.println();
-    }
+		System.out.println("*******  Verifying \"Getting There label and Description\" on Final Page    ******");
 
-    public void verifyGettingThereE2e(WebDriver driver) {
+		System.out.println("Expected Confirmation message: " + expectedDesone);
+		System.out.println("Actual Confirmation message: " + actdesone);
+		System.out.println();
 
-        // ***************************** Verifying Labels Description ONE
-        // *********************************///
+		Assert.assertEquals(actdesone, expectedDesone);
 
-        driver.findElement(By.xpath("//*[@id=\"app\"]/div/header[1]")).getText();
-        String actdesone = driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[3]")).getText();
-
-        String expectedDesone = "To get to where you want to be, we recommend advancing your Hosting"
-                + " from PaaS to Serverless and your Practices from Catalog to Experiments.";
-
-        System.out.println("*******  Verifying \"Getting There label and Description\" on Final Page    ******");
-
-        System.out.println("Expected Confirmation message: " + expectedDesone);
-        System.out.println("Actual Confirmation message: " + actdesone);
-        System.out.println();
-
-        Assert.assertEquals(actdesone, expectedDesone);
-
-    }
-
-    public void verifyGettingThereAllSelectE2e(WebDriver driver) {
-
-        // ***************************** Verifying Labels Description ONE
-
-        driver.findElement(By.xpath("//*[@id=\"app\"]/div/header[1]")).getText();
-        String actdesone = driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[3]")).getText();
-
-        String expectedDesone = "To get to where you want to be, we recommend advancing your Practices from Catalog to Experiments, your Hosting from PaaS to Serverless, your Engineering from Reusable to Engaged, and your Sourcing from Hosted to SaaS.";
-
-        System.out.println("*******  Verifying \"Getting There label and Description\" on Final Page    ******");
-
-        System.out.println("Expected Confirmation message: " + expectedDesone);
-        System.out.println("Actual Confirmation message: " + actdesone);
-        System.out.println();
-
-        Assert.assertEquals(actdesone, expectedDesone);
-
-    }
+	}
 }

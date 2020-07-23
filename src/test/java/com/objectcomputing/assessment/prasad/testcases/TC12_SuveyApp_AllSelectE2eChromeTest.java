@@ -1,106 +1,97 @@
 package com.objectcomputing.assessment.prasad.testcases;
 
-import com.objectcomputing.assessment.prasad.pages.*;
-import com.objectcomputing.assessment.prasad.util.CallClick;
-import com.objectcomputing.assessment.prasad.util.DropDownList;
 import io.github.bonigarcia.wdm.WebDriverManager;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
+
+import com.objectcomputing.assessment.prasad.pages.EngineeringPage;
+import com.objectcomputing.assessment.prasad.pages.HostingPage;
+import com.objectcomputing.assessment.prasad.pages.PracticesPage;
+import com.objectcomputing.assessment.prasad.pages.SourcingPage;
+import com.objectcomputing.assessment.prasad.pages.SummaryPage;
+import com.objectcomputing.assessment.prasad.pages.SurveyLoginPage;
+import com.objectcomputing.assessment.prasad.util.CallClick;
+import com.objectcomputing.assessment.prasad.util.DropDownList;
 
 import java.util.concurrent.TimeUnit;
 
 public class TC12_SuveyApp_AllSelectE2eChromeTest {
 
 
-    //public static void main(String[] args) throws InterruptedException{
-    @Test
-    void SuveyApp_AllSelectE2eChromeTest() throws InterruptedException {
+	//public static void main(String[] args) throws InterruptedException{
+	@Test
+	void SuveyApp_AllSelectE2eChromeTest() throws InterruptedException  {
 
-        WebDriverManager.chromedriver().setup();
-        //Initiating your chromedriver
-        ChromeOptions options = new ChromeOptions();
-        String opts = System.getenv("CHROME_OPTS");
-        if (opts != null) {
-            options.addArguments(opts);
-        }
-        WebDriver driver = new ChromeDriver(options);
+		WebDriverManager.chromedriver().setup();
 
-        driver.get("https://assessment.objectcomputing.com/");
-        driver.manage().window().maximize();
+		WebDriver driver = new ChromeDriver();
 
-        CallClick click = new CallClick();
-        DropDownList selections = new DropDownList(driver);
-        SummaryPage fromSummaryPage = new SummaryPage();
+		driver.get("https://assessment.objectcomputing.com/");
+		driver.manage().window().maximize();
 
-        SurveyLoginPage login = new SurveyLoginPage();
-        login.surveyLogin(driver);
+		CallClick click = new CallClick();
+		DropDownList selections = new DropDownList(driver);
+		SummaryPage fromSummaryPage = new SummaryPage();
 
-        HostingPage fromHostPage = new HostingPage();
-        EngineeringPage fromEngPage = new EngineeringPage();
-        SourcingPage fromSourcingPage = new SourcingPage();
-        PracticesPage fromPracticesPage = new PracticesPage();
+		SurveyLoginPage login = new SurveyLoginPage();
+		login.surveyLogin(driver);
 
-        fromHostPage.valHostHeader(driver);
+		HostingPage fromHostPage = new HostingPage();
+		EngineeringPage fromEngPage = new EngineeringPage();
+		SourcingPage fromSourcingPage = new SourcingPage();
+		PracticesPage fromPracticesPage = new PracticesPage();
 
-        System.out.println("   *****  Value/Values selected on the HOSTING page are  *** ");
-        selections.selectDropDown("10%", "40%", "30%", "10%", "10%");
+		System.out.println();
+		System.out.println("   *******    TESTCASE NAME : TC12_SuveyApp_AllSelectE2eChromeTest  ******* ");
+		
+		fromHostPage.valHostHeader(driver);
 
-        //String[] list1 = {"10", "60", "30"};
-        //String[] list2 = {"20", "60", "10", "10"};
-        //test t = new test();
-        //	DropDownListFinal t = new DropDownListFinal();
-        //	t.selectDropDownFinal(list1);
-        //	t.selectDropDownFinal(list1);
-        //DropDownListRD t = new DropDownListRD();
-        //t.selectDropDown(list1);
+		System.out.println("   *****  Value/Values selected on the HOSTING page are  *** ");
+		selections.selectDropDown("10%", "40%", "30%", "10%", "10%");
 
-        //	DropDownListFinal t = new DropDownListFinal();
-        //	t.selectDropDownFinal(list1);
+		click.clickToNext(driver);
 
+		fromEngPage.valEngHeader(driver);
 
-        click.clickToNext(driver);
+		System.out.println("   *****  Value/Values selected on the ENGINEERING page are  *** ");
+		selections.selectDropDown("20%", "10%", "20%", "10%", "40%");
 
-        fromEngPage.valEngHeader(driver);
+		click.clickToNext(driver);
 
-        System.out.println("   *****  Value/Values selected on the ENGINEERING page are  *** ");
-        selections.selectDropDown("20%", "10%", "20%", "10%", "40%");
+		fromSourcingPage.valSourcHeader(driver);
 
-        click.clickToNext(driver);
+		System.out.println("   *****  Value/Values selected on the SOURCING page are  *** ");
+		selections.selectDropDown("50%", "20%", "10%", "10%", "10%");
 
-        fromSourcingPage.valSourcHeader(driver);
+		click.clickToNext(driver);
 
-        System.out.println("   *****  Value/Values selected on the SOURCING page are  *** ");
-        selections.selectDropDown("50%", "20%", "10%", "10%", "10%");
+		fromPracticesPage.valPracticesHeader(driver);
+		fromPracticesPage.selectPractPageItems(driver);
+		click.clickToNext(driver);
 
-        click.clickToNext(driver);
+		System.out.println(" *****************  LEVERS   STATUS befor user drag the Circles *****************");
+		System.out.println();
 
-        fromPracticesPage.valPracticesHeader(driver);
-        fromPracticesPage.selectPractPageItems(driver);
-        click.clickToNext(driver);
+		fromSummaryPage.setCurrentLevel("level current");
+		fromSummaryPage.findCurrentLevers(driver);
+		TimeUnit.SECONDS.sleep(3);
 
-        System.out.println(" *****************  LEVERS   STATUS befor user drag the Circles *****************");
-        System.out.println();
+		fromSummaryPage.dragtTestGoalsHorizLoop(driver);
 
-        fromSummaryPage.setCurrentLevel("level current");
-        fromSummaryPage.findCurrentLevers(driver);
-        TimeUnit.SECONDS.sleep(3);
+		System.out.println(" *****************  LEVERS   STATUS after user drag the Circles *****************");
+		System.out.println();
 
-        fromSummaryPage.dragtTestGoalsHorizLoop(driver);
+		fromSummaryPage.setCurrentLevel("level goal");
+		fromSummaryPage.findCurrentLevers(driver);
 
-        System.out.println(" *****************  LEVERS   STATUS after user drag the Circles *****************");
-        System.out.println();
+		fromSummaryPage.verifyGettingThereAllSelectE2e(driver);
 
-        fromSummaryPage.setCurrentLevel("level goal");
-        fromSummaryPage.findCurrentLevers(driver);
+		driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[6]/button[2]")).click();
 
-        fromSummaryPage.verifyGettingThereAllSelectE2e(driver);
+		driver.quit();
 
-        driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[6]/button[2]")).click();
-
-        driver.quit();
-
-    }
+	}
 }

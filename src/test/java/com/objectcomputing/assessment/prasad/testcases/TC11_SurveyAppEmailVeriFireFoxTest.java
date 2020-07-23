@@ -1,11 +1,9 @@
 package com.objectcomputing.assessment.prasad.testcases;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
@@ -16,19 +14,13 @@ public class TC11_SurveyAppEmailVeriFireFoxTest {
         String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
         return email.matches(regex);
     }
-
-    @Test
+@Test
     public void SurveyAppEmailVeriFireFoxTest() throws InterruptedException {
 
-        WebDriverManager.firefoxdriver().setup();
-        //Initiating your firefoxdriver
-        FirefoxOptions options = new FirefoxOptions();
-        String opts = System.getenv("FIREFOX_OPTS");
-        if(opts != null) {
-            options.addArguments(opts);
-        }
-        WebDriver driver = new FirefoxDriver(options);
 
+        System.setProperty("webdriver.gecko.driver", "C:\\Users\\malamelp\\geckodriver.exe");
+
+        WebDriver driver = new FirefoxDriver();
         driver.manage().window().maximize();
 
         ///*************************************************************************************************///
@@ -37,6 +29,9 @@ public class TC11_SurveyAppEmailVeriFireFoxTest {
 
         driver.get("https://assessment.objectcomputing.com/");
 
+        System.out.println();
+		System.out.println("   *******    TESTCASE NAME : TC11_SurveyAppEmailVeriFireFoxTest  ******* ");
+		System.out.println();
 
         String emailValidation[] = {"g g@g", "g@@a.com", "gg@a.", "gg@g g", "goodemail@gmail.com"};
 
