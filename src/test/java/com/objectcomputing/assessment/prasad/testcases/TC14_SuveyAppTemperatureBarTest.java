@@ -1,132 +1,127 @@
 package com.objectcomputing.assessment.prasad.testcases;
 
-	
-	import org.openqa.selenium.WebDriver;
-	import org.openqa.selenium.chrome.ChromeDriver;
-	import org.testng.annotations.Test;
 
-import com.objectcomputing.assessment.prasad.pages.EngineeringPage;
-import com.objectcomputing.assessment.prasad.pages.HostingPage;
-import com.objectcomputing.assessment.prasad.pages.PracticesPage;
-import com.objectcomputing.assessment.prasad.pages.SourcingPage;
-import com.objectcomputing.assessment.prasad.pages.SummaryPage;
-import com.objectcomputing.assessment.prasad.pages.SurveyLoginPage;
+import com.objectcomputing.assessment.prasad.pages.*;
 import com.objectcomputing.assessment.prasad.util.CallClick;
-	import com.objectcomputing.assessment.prasad.util.DropDownList;
+import com.objectcomputing.assessment.prasad.util.DropDownList;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.Test;
 
-	import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeUnit;
 
-	public class TC14_SuveyAppTemperatureBarTest {
+public class TC14_SuveyAppTemperatureBarTest {
 
-		// public WebDriver driver;
-		// static String baseurl = "https://assessment.objectcomputing.com/";
+    // public WebDriver driver;
+    // static String baseurl = "https://assessment.objectcomputing.com/";
 
-		@Test
+    @Test
 
-		public void verifTemperatrueBar() throws InterruptedException {
+    public void verifTemperatrueBar() throws InterruptedException {
+        WebDriverManager.chromedriver().setup();
+        //Initiating your chromedriver
+        ChromeOptions options = new ChromeOptions();
+        String opts = System.getenv("CHROME_OPTS");
+        if (opts != null) {
+            options.addArguments(opts);
+        }
+        WebDriver driver = new ChromeDriver(options);
+        driver.manage().window().maximize();
 
-			// System.setProperty("webdriver.gecko.driver",
-			// "C:\\Users\\malamelp\\geckodriver.exe");
+        DropDownList fromUtil = new DropDownList(driver);
+        CallClick click = new CallClick();
+        HostingPage fromhostPage = new HostingPage();
+        EngineeringPage fromEngPage = new EngineeringPage();
+        SourcingPage fromSourcingPage = new SourcingPage();
+        PracticesPage fromPracticesPage = new PracticesPage();
+        SummaryPage fromSummaryPage = new SummaryPage();
 
-			// WebDriver driver = new FirefoxDriver();
+        // Launch the Survey Application URL
 
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\malamelp\\chromedriver.exe");
+        driver.get("https://assessment.objectcomputing.com/");
 
-			WebDriver driver = new ChromeDriver();
-			driver.manage().window().maximize();
+        // Log in Page
 
-			DropDownList fromUtil = new DropDownList(driver);
-			CallClick click = new CallClick();
-			HostingPage fromhostPage = new HostingPage();
-			EngineeringPage fromEngPage = new EngineeringPage();
-			SourcingPage fromSourcingPage = new SourcingPage();
-			PracticesPage fromPracticesPage = new PracticesPage();
-			SummaryPage fromSummaryPage = new SummaryPage();
+        SurveyLoginPage fromLogInPage = new SurveyLoginPage();
+        fromLogInPage.surveyLogin(driver);
 
-			// Launch the Survey Application URL
+        // Verifying the Hosting Page header
 
-			driver.get("https://assessment.objectcomputing.com/");
+        System.out.println();
+        System.out.println("   *******    TESTCASE NAME : TC14_SuveyAppTemperatureBarTest  ******* ");
 
-			// Log in Page
+        fromhostPage.valHostHeader(driver);
 
-			SurveyLoginPage fromLogInPage = new SurveyLoginPage();
-			fromLogInPage.surveyLogin(driver);
+        // Hosting Page - drop down selection validate to 100%
 
-			// Verifying the Hosting Page header
-			
-			System.out.println();
-			System.out.println("   *******    TESTCASE NAME : TC14_SuveyAppTemperatureBarTest  ******* ");
-			
-			fromhostPage.valHostHeader(driver);
+        System.out.println("   *****  Value/Values selected on the HOSTING page are  *** ");
+        fromUtil.selectDropDownTempBar("100%");
 
-			// Hosting Page - drop down selection validate to 100%
+        // Current State of Temperature-bar Hosting Page
 
-			System.out.println("   *****  Value/Values selected on the HOSTING page are  *** ");
-			fromUtil.selectDropDownTempBar("100%");
+        fromhostPage.verifyTemBarHost(driver);
 
-			// Current State of Temperature-bar Hosting Page
+        click.clickToNext(driver);
 
-			fromhostPage.verifyTemBarHost(driver);
+        // Verifying the Page header as "Engineering"
 
-			click.clickToNext(driver);
+        fromEngPage.valEngHeader(driver);
 
-			// Verifying the Page header as "Engineering"
+        // Engineering Page - drop down selection validate to 100%
 
-			fromEngPage.valEngHeader(driver);
+        System.out.println("   *****  Value/Values selected on the Engineering page are  *** ");
+        fromUtil.selectDropDownTempBar("100%");
 
-			// Engineering Page - drop down selection validate to 100%
+        // Current State of Temperature-bar Hosting Page
 
-			System.out.println("   *****  Value/Values selected on the Engineering page are  *** ");
-			fromUtil.selectDropDownTempBar("100%");
+        fromEngPage.verifyTemBarEng(driver);
 
-			// Current State of Temperature-bar Hosting Page
+        click.clickToNext(driver);
 
-			fromEngPage.verifyTemBarEng(driver);
+        // Verifying the Page header as "Sourcing"
 
-			click.clickToNext(driver);
+        fromSourcingPage.valSourcHeader(driver);
 
-			// Verifying the Page header as "Sourcing"
+        // Sourcing Page - drop down selection validate to 100%
 
-			fromSourcingPage.valSourcHeader(driver);
+        System.out.println("   *****  Value/Values selected on the Sourcing page are  *** ");
+        fromUtil.selectDropDownTempBar("100%");
 
-			// Sourcing Page - drop down selection validate to 100%
+        fromSourcingPage.verifyTemBarSourc(driver);
 
-			System.out.println("   *****  Value/Values selected on the Sourcing page are  *** ");
-			fromUtil.selectDropDownTempBar("100%");
+        click.clickToNext(driver);
 
-			fromSourcingPage.verifyTemBarSourc(driver);
+        /// **** Practices Page - Select different items on the Practices Page ***///
 
-			click.clickToNext(driver);
+        fromPracticesPage.valPracticesHeader(driver);
+        fromPracticesPage.selectPractPageItems(driver);
 
-			/// **** Practices Page - Select different items on the Practices Page ***///
+        fromPracticesPage.verifyTemBarPractice(driver);
+        click.clickToNext(driver);
 
-			fromPracticesPage.valPracticesHeader(driver);
-			fromPracticesPage.selectPractPageItems(driver);
+        /// *** Verify the current Levers ***///
+        System.out.println(" *****************  LEVERS   STATUS befor user drag the Circles *****************");
+        System.out.println();
 
-			fromPracticesPage.verifyTemBarPractice(driver);
-			click.clickToNext(driver);
+        fromSummaryPage.setCurrentLevel("level current");
+        fromSummaryPage.findCurrentLevers(driver);
 
-			/// *** Verify the current Levers ***///
-			System.out.println(" *****************  LEVERS   STATUS befor user drag the Circles *****************");
-			System.out.println();
+        TimeUnit.SECONDS.sleep(3);
 
-			fromSummaryPage.setCurrentLevel("level current");
-			fromSummaryPage.findCurrentLevers(driver);
+        /// *** Drag the Goal horizontally ***///
 
-			TimeUnit.SECONDS.sleep(3);
+        fromSummaryPage.dragtTestGoalsHorizLoop(driver);
 
-			/// *** Drag the Goal horizontally ***///
+        System.out.println(" *****************  LEVERS   STATUS after user drag the Circles *****************");
+        System.out.println();
 
-			fromSummaryPage.dragtTestGoalsHorizLoop(driver);
+        fromSummaryPage.setCurrentLevel("level goalLL");
+        fromSummaryPage.findCurrentLevers(driver);
 
-			System.out.println(" *****************  LEVERS   STATUS after user drag the Circles *****************");
-			System.out.println();
+        driver.quit();
 
-			fromSummaryPage.setCurrentLevel("level goalLL");
-			fromSummaryPage.findCurrentLevers(driver);
-
-			driver.quit();
-
-		}
+    }
 
 }
