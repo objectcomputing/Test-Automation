@@ -26,6 +26,9 @@ public class TC01_SuveyApp_E2e_Chrome {
         if (opts != null) {
             options.addArguments(opts);
         }
+        
+        options.addArguments("--headless");
+        
         WebDriver driver = new ChromeDriver(options);
 
         driver.get("https://assessment.objectcomputing.com/");
@@ -125,7 +128,9 @@ public class TC01_SuveyApp_E2e_Chrome {
         /// *************************************************************************************************///
 
 
-        fromSummaryPage.dragGoalsHorizontally(driver);
+        //fromSummaryPage.dragGoalsHorizontally(driver);
+        fromSummaryPage.dragtTestGoalsHorizLoop(driver);
+
         System.out.println(" *****************  LEVERS   STATUS after user drag the Circles *****************");
         System.out.println();
 

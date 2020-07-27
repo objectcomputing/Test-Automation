@@ -3,7 +3,9 @@
     <test name="all-tests-selenium">
         <packages>
             <package name="com.objectcomputing.assessment.prasad.testcases"/>
+            <!-- 
             <package name="com.objectcomputing.assessment.reshma.Testcases"/>
+            -->
         </packages>
     </test>
 </suite>

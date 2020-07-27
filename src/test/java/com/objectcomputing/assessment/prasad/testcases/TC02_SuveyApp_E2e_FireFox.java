@@ -25,6 +25,8 @@ public class TC02_SuveyApp_E2e_FireFox {
         if (opts != null) {
             options.addArguments(opts);
         }
+        //options.addArguments("--headless");
+
         WebDriver driver = new FirefoxDriver(options);
 
         driver.get("https://assessment.objectcomputing.com/");

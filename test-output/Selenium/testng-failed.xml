@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Selenium]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="all-tests-selenium(failed)">
+    <classes>
+      <class name="com.objectcomputing.assessment.prasad.testcases.TC13_SuveyApp_AllSelectE2eFireFoxTest">
+        <methods>
+          <include name="SuveyApp_AllSelectE2eChromeTest"/>
+        </methods>
+      </class> <!-- com.objectcomputing.assessment.prasad.testcases.TC13_SuveyApp_AllSelectE2eFireFoxTest -->
+    </classes>
+  </test> <!-- all-tests-selenium(failed) -->
+</suite> <!-- Failed suite [Selenium] -->

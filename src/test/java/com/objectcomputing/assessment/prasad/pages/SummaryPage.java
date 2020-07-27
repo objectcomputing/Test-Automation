@@ -265,10 +265,15 @@ public class SummaryPage {
             float xcord1 = point1.getX();
             float xfinalcord1 = (float) wtest.width;
             float xmovecord1 = xfinalcord1 - xcord1;
+            System.out.println("xmovecord1:" + xmovecord1);
+            System.out.println("xfinalcord1:" + xfinalcord1);
+            System.out.println("xcord1:" +xcord1);
+
+
 
             Actions actions1 = new Actions(driver);
             actions1.clickAndHold(dragElementFrom1).moveByOffset((int) xmovecord1, 0).release().perform();
-            // dragElementFrom1.click();
+            //dragElementFrom1.click();
 
             TimeUnit.SECONDS.sleep(3);
 
@@ -665,10 +670,11 @@ public class SummaryPage {
         System.out.println();
     }
 
-    public void verifyGettingThereE2e(WebDriver driver) {
+    public void verifyGettingThereE2e(WebDriver driver)  {
 
         // ***************************** Verifying Labels Description ONE
         // *********************************///
+
 
         driver.findElement(By.xpath("//*[@id=\"app\"]/div/header[1]")).getText();
         String actdesone = driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[3]")).getText();
@@ -683,6 +689,8 @@ public class SummaryPage {
         System.out.println();
 
         Assert.assertEquals(actdesone, expectedDesone);
+        
+
 
     }
 
