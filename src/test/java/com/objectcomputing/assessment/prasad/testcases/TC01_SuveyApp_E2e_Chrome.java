@@ -27,7 +27,7 @@ public class TC01_SuveyApp_E2e_Chrome {
             options.addArguments(opts);
         }
         
-        options.addArguments("--headless");
+        //options.addArguments("--headless");
         
         WebDriver driver = new ChromeDriver(options);
 

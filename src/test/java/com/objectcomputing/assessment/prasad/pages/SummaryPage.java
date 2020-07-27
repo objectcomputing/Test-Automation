@@ -265,9 +265,9 @@ public class SummaryPage {
             float xcord1 = point1.getX();
             float xfinalcord1 = (float) wtest.width;
             float xmovecord1 = xfinalcord1 - xcord1;
-            System.out.println("xmovecord1:" + xmovecord1);
-            System.out.println("xfinalcord1:" + xfinalcord1);
-            System.out.println("xcord1:" +xcord1);
+            //System.out.println("xmovecord1:" + xmovecord1);
+            //System.out.println("xfinalcord1:" + xfinalcord1);
+            //System.out.println("xcord1:" +xcord1);
 
 
 

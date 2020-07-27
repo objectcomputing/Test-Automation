@@ -3,11 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.objectcomputing.assessment.prasad.testcases.TC01_SuveyApp_E2e_Chrome">
+      <class name="com.objectcomputing.assessment.reshma.Testcases.TC01_Verify_SurveyApp_e2e">
         <methods>
-          <include name="verifyHappyPathChrome"/>
+          <include name="beforeMethod"/>
+          <include name="test"/>
+          <include name="afterMethod"/>
         </methods>
-      </class> <!-- com.objectcomputing.assessment.prasad.testcases.TC01_SuveyApp_E2e_Chrome -->
+      </class> <!-- com.objectcomputing.assessment.reshma.Testcases.TC01_Verify_SurveyApp_e2e -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

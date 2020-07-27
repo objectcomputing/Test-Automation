@@ -131,7 +131,7 @@ public class TC02_SuveyApp_E2e_FireFox {
 
         /// *** Drag the Goal horizontally ***///
 
-        fromSummaryPage.dragtTestGoalsHorizLoop(driver);
+        //fromSummaryPage.dragtTestGoalsHorizLoop(driver);
 
         fromSummaryPage.dragtTestGoalsHorizLoop(driver);
 
