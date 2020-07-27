@@ -21,6 +21,7 @@ jobs:
             FIREFOX_OPTS: --headless
         run: mvn clean install
       - name: Cat report
+        if: ${{ always() }}
         run: cat reports/*.html
 
 
