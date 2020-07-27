@@ -17,7 +17,7 @@ public class ExtendReprotNG {
         //Date d = new Date(0);
         String fileName = "Extent_" + d.toString().replace(":", "_") + ".html";
         //String path = System.getProperty("user.dir") + "./reports/prasad.html";
-        String path = System.getProperty("user.dir") + "./reports/" + fileName;
+        String path = "./reports/" + fileName;
 
 
         ExtentSparkReporter reporter = new ExtentSparkReporter(path);

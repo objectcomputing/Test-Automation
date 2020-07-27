@@ -16,4 +16,5 @@ log/
 target/
 
 bin
-
+test-output
+reports

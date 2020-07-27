@@ -20,4 +20,7 @@ jobs:
             CHROME_OPTS: --headless
             FIREFOX_OPTS: --headless
         run: mvn clean install
+      - name: Cat report
+        run: cat reports/*.html
+
 

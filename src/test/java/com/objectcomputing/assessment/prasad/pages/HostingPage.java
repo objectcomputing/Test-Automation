@@ -13,6 +13,7 @@ public class HostingPage {
 
         String actualonehost = driver.findElement(By.xpath("/html/body/div/div/div[1]/div[1]/header/h2")).getText();
 
+        Object o = null;
         String expectedone = "Hosting";
 
         System.out.println();
